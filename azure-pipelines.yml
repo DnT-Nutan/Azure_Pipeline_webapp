@@ -9,10 +9,10 @@ variables:
 
 
 steps:
-- task: Npm@1
+- task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
-  displayName: 'Install Npm'
+    versionSpec: '14.x'  # This will install Node.js 14.x, which includes npm 6.x or higher
+  displayName: 'Install Node.js'
   
 - script: |
     npm install
