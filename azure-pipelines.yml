@@ -2,6 +2,7 @@ trigger:
 - main  # Define the branch to trigger the pipeline on
 
 pool: 'laptops'
+agent: 'dell'
 
 variables:
   buildConfiguration: 'production'
