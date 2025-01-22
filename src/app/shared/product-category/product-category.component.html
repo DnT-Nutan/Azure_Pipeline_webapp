@@ -1,0 +1,10 @@
+<div class="hero__categories">
+    <div class="hero__categories__all" (click)="toggleCategories()">
+      <i class="fa fa-bars"></i>
+      <span>All departments</span>
+    </div>
+    <ul *ngIf="categories" [@toggleCategories]="isCategoriesOpen ? 'open' : 'closed'">
+      <li *ngFor="let category of categories"><a href="#">{{category.categoryName}}</a></li>
+    </ul>
+  </div>
+  
