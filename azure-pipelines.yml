@@ -15,8 +15,11 @@ steps:
   displayName: 'Install Node.js'
   
 - script: |
+    registry=https://pkgs.dev.azure.com/aslairlinegcp/_packaging/aslairlinegcp/npm/registry/always-auth=true
+    vsts-npm-auth -config .npmrc
     npm install
     npm run build-prod
+    npm publish
   displayName: 'Build Angular App'
 
 - task: PublishBuildArtifacts@1
