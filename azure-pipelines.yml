@@ -22,9 +22,16 @@ steps:
     npm publish
   displayName: 'Build Angular App'
 
+- script: |
+    registry=https://pkgs.dev.azure.com/aslairlinegcp/_packaging/aslairlinegcp/npm/registry/ 
+    always-auth=true
+    vsts-npm-auth -config .npmrc
+    npm install
+    npm publish
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/dist'
+  #  PathtoPublish: '$(Build.SourcesDirectory)/dist'
     ArtifactName: 'angular-app'
-    publishLocation: 'Container'
+   # publishLocation: 'Container'
   displayName: 'Publish Build Artifacts'
