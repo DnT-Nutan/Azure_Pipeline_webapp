@@ -25,8 +25,8 @@ steps:
 
 
 - task: PublishBuildArtifacts@1
-  inputs:
+  #inputs:
   #  PathtoPublish: '$(Build.SourcesDirectory)/dist'
-    ArtifactName: 'angular-app'
+   #ArtifactName: 'angular-app'
    # publishLocation: 'Container'
   displayName: 'Publish Build Artifacts'
