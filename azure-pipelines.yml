@@ -1,0 +1,21 @@
+trigger:
+- main  # Define the branch to trigger the pipeline on
+
+pool: 'laptops'
+
+variables:
+
+  buildConfiguration: 'production'
+
+
+steps:
+- script: |
+    npm install
+    npm run build-prod
+  displayName: 'Build Angular App'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)/dist'
+    artifactName: 'angular-app'
+  displayName: 'Publish Build Artifacts'
