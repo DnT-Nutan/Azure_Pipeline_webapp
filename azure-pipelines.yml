@@ -2,16 +2,18 @@ trigger:
 - main  # Define the branch to trigger the pipeline on
 
 pool: 'laptops'
-agent: 'dell'
+#agent: 'dell'
 
 variables:
   buildConfiguration: 'production'
 
 
 steps:
-- task: Npm@1
+- task: Npm@0
   inputs:
-    command: 'install'
+    versionSpec: '8.x'
+  displayName: 'Install Npm'
+  
 - script: |
     npm install
     npm run build-prod
